@@ -9,7 +9,7 @@ public class Util {
     private static final String USER = "bestuser";
     private static final String PASSWORD = "bestuser";
 
-    static Connection connection = null;
+    private static Connection connection = null;
 
     public static Connection getConnection () {
         try {
