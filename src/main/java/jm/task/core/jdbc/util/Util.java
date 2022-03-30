@@ -9,17 +9,20 @@ public class Util {
     private static final String USER = "bestuser";
     private static final String PASSWORD = "bestuser";
 
-    public static Connection getConnection () {
-        Connection connection = null;
+    static Connection connection = null;
 
+    public static Connection getConnection () {
         try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
-//            if (!connection.isClosed()) {
-//                System.out.println("Соединение установлено!");
-//            }
         } catch (SQLException e) {
             System.out.println("Соединение не установлено");
         }
         return connection;
+    }
+
+    public static void closeConnection() throws SQLException {
+        if (connection != null) {
+            connection.close();
+        }
     }
 }
